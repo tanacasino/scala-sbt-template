@@ -1,4 +1,4 @@
-# Scala sbt template for me #
+# Scala sbt project template for me #
 
-おれおれテンプレート
+おれおれ用のテンプレート作っておく
 
