@@ -1,4 +1,7 @@
-name := "Scala sbt template"
+import sbtassembly.Plugin._
+import AssemblyKeys._
+
+name := "scala-sbt-template"
 
 version := "0.1.0"
 
@@ -10,8 +13,8 @@ scalacOptions ++= Seq("-unchecked", "-deprecation")
 
 libraryDependencies ++= {
   Seq(
-    "jp.co.bizreach" %% "s3scala-scala" % "0.0.1",
-    "org.scalatest"  % "scalatest_2.11" % "2.2.1" % "test"
+   "jp.co.bizreach" %% "aws-s3-scala" % "0.0.3",
+   "org.scalatest"  % "scalatest_2.11" % "2.2.1" % "test"
   )
 }
 
@@ -20,3 +23,4 @@ resolvers ++= Seq(
   "releases"      at "http://oss.sonatype.org/content/repositories/releases"
 )
 
+assemblySettings
