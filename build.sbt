@@ -5,7 +5,7 @@ name := "scala-sbt-template"
 
 version := "0.1.0"
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.11.6"
 
 organization := "com.github.tanacasino"
 
@@ -13,6 +13,11 @@ scalacOptions ++= (
   "-deprecation" ::
   "-unchecked" ::
   "-Xlint" ::
+  "-Ywarn-dead-code" ::
+  "-Ywarn-numeric-widen" ::
+  "-Ywarn-unused" ::
+  "-Ywarn-unused-import" ::
+  "-Ywarn-value-discard" ::
   "-language:existentials" ::
   "-language:higherKinds" ::
   "-language:implicitConversions" ::
@@ -28,7 +33,6 @@ shellPrompt := { state =>
 
 libraryDependencies ++= {
   Seq(
-   "jp.co.bizreach" %% "aws-s3-scala" % "0.0.3",
    "org.scalatest"  % "scalatest_2.11" % "2.2.1" % "test"
   )
 }

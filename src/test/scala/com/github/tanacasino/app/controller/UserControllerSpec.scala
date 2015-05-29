@@ -1,6 +1,6 @@
 package com.github.tanacasino.app.controller
 
-import com.github.tanacasino.app.service.{User, UserRepository, UserService}
+import com.github.tanacasino.app.service.{User, UserRepository}
 import org.scalatest.FunSpec
 
 
