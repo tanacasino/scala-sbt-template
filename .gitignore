@@ -5,6 +5,6 @@
 /.idea
 /.idea_modules
 
+*.class
 
 .DS_Store
-
