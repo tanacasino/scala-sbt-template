@@ -1,6 +1,10 @@
 import sbtassembly.Plugin._
 import AssemblyKeys._
 
+import com.scalapenos.sbt.prompt._
+import SbtPrompt.autoImport._
+
+
 name := "scala-sbt-template"
 
 version := "0.1.0"
@@ -24,13 +28,6 @@ scalacOptions ++= (
   Nil
 )
 
-shellPrompt := { state =>
-  val branch = if(file(".git").exists){
-    "git branch".lines_!.find{_.head == '*'}.map{_.drop(1)}.getOrElse("")
-  } else ""
-  Project.extract(state).currentRef.project + branch + " > "
-}
-
 libraryDependencies ++= {
   Seq(
    "org.scalatest"  % "scalatest_2.11" % "2.2.1" % "test"
@@ -43,3 +40,14 @@ resolvers ++= Seq(
 )
 
 assemblySettings
+
+promptTheme := PromptTheme(
+  List(
+    text("[", fg(white)),
+    currentProject(fg(cyan)),
+    text("] ", fg(white)),
+    gitBranch(clean = fg(green), dirty = fg(red)),
+    text(" $ ", fg(yellow))
+  )
+)
+
