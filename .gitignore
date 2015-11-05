@@ -8,3 +8,7 @@
 *.class
 
 .DS_Store
+
+.ensime
+.ensime-cache
+
