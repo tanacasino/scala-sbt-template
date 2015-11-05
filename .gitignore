@@ -1,13 +1,20 @@
-/target
-/project/target
-/project/project
 
-/.idea
-/.idea_modules
+.DS_Store
+
+target
+project/target
+project/project
 
 *.class
 
-.DS_Store
+.idea
+.idea_modules
+
+.classpath
+.project
+.settings
+/bin/
+.cache-*
 
 .ensime
 .ensime-cache
