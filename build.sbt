@@ -6,18 +6,18 @@ ThisBuild / scalacOptions ++= Seq(
   "-deprecation",
   "-unchecked",
   "-Xlint",
-  "-Ywarn-dead-code",
+  "-Xwarn-dead-code",
   "-Ywarn-numeric-widen",
-  "-Ywarn-unused",
-  "-Ywarn-unused-import",
-  "-Ywarn-value-discard",
+  "-Xwarn-unused",
+  "-Xwarn-unused-import",
+  "-Xwarn-value-discard",
   "-language:existentials",
   "-language:higherKinds",
-  "-language:implicitConversions"
+  "-language:implicitConversions",
 )
 
 lazy val dependencies = Seq(
-  Dependencies.ScalaTest
+  Dependencies.ScalaTest,
 )
 
 lazy val root = (project in file("."))
