@@ -1,21 +1,13 @@
-
-.DS_Store
-
-target
-project/target
-project/project
-
 *.class
+*.log
 
-.idea
-.idea_modules
-
-.classpath
-.project
-.settings
-/bin/
-.cache-*
-
-.ensime
-.ensime-cache
+.cache/
+.history/
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
 

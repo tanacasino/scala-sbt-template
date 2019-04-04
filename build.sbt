@@ -1,53 +1,27 @@
-import sbtassembly.Plugin._
-import AssemblyKeys._
-
-import com.scalapenos.sbt.prompt._
-import SbtPrompt.autoImport._
-
-
-name := "scala-sbt-template"
-
-version := "0.1.0"
-
-scalaVersion := "2.11.6"
-
-organization := "com.github.tanacasino"
-
-scalacOptions ++= (
-  "-deprecation" ::
-  "-unchecked" ::
-  "-Xlint" ::
-  "-Ywarn-dead-code" ::
-  "-Ywarn-numeric-widen" ::
-  "-Ywarn-unused" ::
-  "-Ywarn-unused-import" ::
-  "-Ywarn-value-discard" ::
-  "-language:existentials" ::
-  "-language:higherKinds" ::
-  "-language:implicitConversions" ::
-  Nil
+ThisBuild / scalaVersion := "2.12.8"
+ThisBuild / version := "0.1.0"
+ThisBuild / organization := "com.github.tanacasino.example"
+ThisBuild / organizationName := "tanacasino.example"
+ThisBuild / scalacOptions ++= Seq(
+  "-deprecation",
+  "-unchecked",
+  "-Xlint",
+  "-Ywarn-dead-code",
+  "-Ywarn-numeric-widen",
+  "-Ywarn-unused",
+  "-Ywarn-unused-import",
+  "-Ywarn-value-discard",
+  "-language:existentials",
+  "-language:higherKinds",
+  "-language:implicitConversions"
 )
 
-libraryDependencies ++= {
-  Seq(
-   "org.scalatest"  % "scalatest_2.11" % "2.2.1" % "test"
+lazy val dependencies = Seq(
+  Dependencies.ScalaTest
+)
+
+lazy val root = (project in file("."))
+  .settings(
+    name := "scala-sbt-template",
+    libraryDependencies ++= dependencies
   )
-}
-
-resolvers ++= Seq(
-  "snapshots"     at "http://oss.sonatype.org/content/repositories/snapshots",
-  "releases"      at "http://oss.sonatype.org/content/repositories/releases"
-)
-
-assemblySettings
-
-promptTheme := PromptTheme(
-  List(
-    text("[", fg(white)),
-    currentProject(fg(cyan)),
-    text("] ", fg(white)),
-    gitBranch(clean = fg(green), dirty = fg(red)),
-    text(" $ ", fg(yellow))
-  )
-)
-
