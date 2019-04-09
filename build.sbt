@@ -14,11 +14,11 @@ ThisBuild / scalacOptions ++= Seq(
   "-Ywarn-value-discard",
   "-language:existentials",
   "-language:higherKinds",
-  "-language:implicitConversions",
+  "-language:implicitConversions"
 )
 
 lazy val dependencies = Seq(
-  Dependencies.ScalaTest,
+  Dependencies.ScalaTest
 )
 
 lazy val root = (project in file("."))
