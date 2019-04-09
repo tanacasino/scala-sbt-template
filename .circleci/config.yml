@@ -27,5 +27,7 @@ jobs:
           key: v1-dependencies--{{ checksum "build.sbt" }}
 
       - run: cat /dev/null | sbt scalafmtCheckAll scalafmtSbtCheck
+      - run: cat /dev/null | sbt coverage test:test coverageReport
+      - run: bash <(curl -s https://codecov.io/bash)
 
-      - run: cat /dev/null | sbt test:test
+
