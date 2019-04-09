@@ -18,12 +18,12 @@ ThisBuild / scalacOptions ++= Seq(
   "-Xfatal-warnings"
 )
 
-lazy val dependencies = Seq(
+lazy val libDependencies = Seq(
   Dependencies.ScalaTest
 )
 
 lazy val root = (project in file("."))
   .settings(
     name := "scala-sbt-template",
-    libraryDependencies ++= dependencies
+    libraryDependencies ++= libDependencies
   )
