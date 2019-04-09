@@ -16,6 +16,31 @@ class OptionSpec extends WordSpec with Matchers {
       o3 shouldBe o4
     }
 
+    "isDefined" in {
+      o1.isDefined shouldBe true
+      o2.isDefined shouldBe true
+    }
+
+    "isEmpty" in {
+      o3.isEmpty shouldBe true
+      o4.isEmpty shouldBe true
+    }
+
+    "foreach" when {
+      "Some" in {
+        var called: Boolean   = false
+        val stub: Int => Unit = _ => called = true
+        o1.foreach(stub)
+        called shouldBe true
+      }
+      "None" in {
+        var called: Boolean   = false
+        val stub: Int => Unit = _ => called = true
+        o3.foreach(stub)
+        called shouldBe false
+      }
+    }
+
     "map" in {
       o1.map(a1 => a1 + 2) shouldBe Option(3)
       o3.map(a3 => a3 + 2) shouldBe None

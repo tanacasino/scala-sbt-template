@@ -4,6 +4,7 @@ import org.scalatest._
 
 class HelloSpec extends FlatSpec with Matchers {
   "The Hello object" should "say hello" in {
-    Hello.greeting shouldEqual "hello"
+    Hello.main(Array.empty)
+    Hello.greeting shouldBe "hello"
   }
 }
