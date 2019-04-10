@@ -1,0 +1,21 @@
+language: scala
+
+scala:
+  - 2.12.8
+#  - 2.13.0-M5
+
+jdk:
+  - openjdk8
+
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/boot
+    - $HOME/.coursier
+
+script:
+  - sbt ++$TRAVIS_SCALA_VERSION clean update scalafmtCheckAll scalafmtSbtCheck compile test:compile coverage test:test coverageReport
+  - bash <(curl -s https://codecov.io/bash)
+  - find $HOME/.sbt -name "*.lock" | xargs rm
+  - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
+
