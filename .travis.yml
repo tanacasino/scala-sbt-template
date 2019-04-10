@@ -15,7 +15,6 @@ cache:
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION clean update scalafmtCheckAll scalafmtSbtCheck compile test:compile coverage test:test coverageReport
-  - bash <(curl -s https://codecov.io/bash)
   - find $HOME/.sbt -name "*.lock" | xargs rm
   - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
 
