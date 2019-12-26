@@ -1,8 +1,9 @@
 package com.github.tanacasino.example
 
-import org.scalatest._
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
 
-class OptionSpec extends WordSpec with Matchers {
+class OptionSpec extends AnyWordSpec with Matchers {
 
   "A Option" should {
 
