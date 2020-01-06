@@ -9,10 +9,13 @@ jdk:
 cache:
   directories:
     - $HOME/.ivy2/cache
-    - $HOME/.sbt/boot
-    - $HOME/.coursier
+    - $HOME/.sbt
+    - $HOME/.cache/coursier
+
+before_cache:	before_cache:
+  - find $HOME/.ivy2 -name "ivydata-*.properties" -delete
+  - find $HOME/.sbt  -name "*.lock"               -delete
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION clean update scalafmtCheckAll scalafmtSbtCheck compile test:compile coverage test:test coverageReport
-  - find $HOME/.sbt -name "*.lock" | xargs rm
 
