@@ -14,7 +14,7 @@ ThisBuild / scalacOptions ++= Seq(
 )
 
 lazy val libDependencies = Seq(
-  Dependencies.ScalaTest
+  Dependencies.ScalaTest % Test,
 )
 
 lazy val root = (project in file("."))
